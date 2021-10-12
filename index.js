@@ -1,5 +1,5 @@
 
-let myLeads = ["www.awesomelead.com", "www.abc.com"]
+let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
@@ -7,9 +7,17 @@ const ulEl = document.getElementById("ul-el")
 
 inputBtn.addEventListener("click", function() { //push URL to the array
     myLeads.push(inputEl.value)
-    console.log(myLeads)
+
+    inputEl.value = ""
+
+    renderLeads()
 })
 
+
+function renderLeads() {
+let listItems = ""
 for (let i = 0; i < myLeads.length; i++){ //logs out array
-    ulEl.innerHTML += "<li>" + myLeads[i] + "</li> "
+    listItems += "<li>" + myLeads[i] + "</li> "
+}
+ulEl.innerHTML = listItems
 }
